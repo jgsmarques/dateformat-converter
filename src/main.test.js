@@ -5,6 +5,6 @@ import test from './main';
 
 describe('my test', () => {
 	it('should return an empty string', () => {
-		expect(test()).to.equal('2');
+		expect(test()).to.equal('3');
 	});
 });

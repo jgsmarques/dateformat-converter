@@ -1,3 +1,3 @@
 export default function test() {
-	return '2';
+	return '3';
 }
