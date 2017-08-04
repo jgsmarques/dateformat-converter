@@ -34,6 +34,7 @@
     "url": "https://github.com/tigermarques/dateformat-converter/issues"
   },
   "homepage": "https://github.com/tigermarques/dateformat-converter#readme",
+	"files": ["dist", "src"],
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
