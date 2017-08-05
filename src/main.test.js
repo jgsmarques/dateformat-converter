@@ -149,4 +149,52 @@ describe('Dateformat Converter', () => {
 			yearsFourDigits: 'yy'
 		})).to.eql('mm/dd/yy gg:ii:ss P');
 	});
+
+	it('should work converting to and from "momentjs" pattern', () => {
+		expect(dateformatConverter('mm/dd/yyyy HH:ii:ss P', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		}, 'momentjs')).to.eql('MM/DD/YYYY hh:mm:ss A');
+
+		expect(dateformatConverter('MM/DD/YYYY hh:mm:ss A', 'momentjs', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		})).to.eql('mm/dd/yyyy HH:ii:ss P');
+	});
 });

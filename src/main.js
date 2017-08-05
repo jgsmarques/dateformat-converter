@@ -1,10 +1,19 @@
 import Converter from './Converter';
+import momentjsFormat from './patterns/momentjs';
 
 export default function(valueToConvert, sourceFormat, destinationFormat) {
-	for (const prop in sourceFormat) {
-		if (!(prop in destinationFormat)) {
-			destinationFormat[prop] = sourceFormat[prop];
+	let sourceFormatObject = sourceFormat;
+	let destinationFormatObject = destinationFormat;
+	if (sourceFormatObject === 'momentjs') {
+		sourceFormatObject = momentjsFormat;
+	}
+	if (destinationFormatObject === 'momentjs') {
+		destinationFormatObject = momentjsFormat;
+	}
+	for (const prop in sourceFormatObject) {
+		if (!(prop in destinationFormatObject)) {
+			destinationFormatObject[prop] = sourceFormatObject[prop];
 		}
 	}
-	return Converter.format(Converter.parse(valueToConvert, sourceFormat), destinationFormat);
+	return Converter.format(Converter.parse(valueToConvert, sourceFormatObject), destinationFormatObject);
 }
