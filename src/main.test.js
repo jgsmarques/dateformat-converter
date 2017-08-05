@@ -197,4 +197,100 @@ describe('Dateformat Converter', () => {
 			timezoneName: 'Z'
 		})).to.eql('mm/dd/yyyy HH:ii:ss P');
 	});
+
+	it('should work converting to and from "bootstrap-datetime-picker" pattern', () => {
+		expect(convert('mm/dd/yyyy HH:ii:ss P', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		}, 'bootstrap-datetime-picker')).to.eql('mm/dd/yyyy HH:ii:ss P');
+
+		expect(convert('mm/dd/yyyy HH:ii:ss P', 'bootstrap-datetime-picker', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		})).to.eql('mm/dd/yyyy HH:ii:ss P');
+	});
+
+	it('should work converting to and from "jquery-dateFormat" pattern', () => {
+		expect(convert('mm/dd/yyyy HH:ii:ss P', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		}, 'jquery-dateFormat')).to.eql('MM/dd/yyyy hh:mm:ss a');
+
+		expect(convert('MM/dd/yyyy hh:mm:ss a', 'jquery-dateFormat', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		})).to.eql('mm/dd/yyyy HH:ii:ss P');
+	});
 });
