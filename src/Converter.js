@@ -31,7 +31,7 @@ const transform = function(stringToTransform, source, target) {
 			const prop = keyArr[propIndex];
 
 			if (stringToTransform.indexOf(target[prop], strIndex) === strIndex) {
-				result += source[prop];
+				result += source[prop] || '';
 				strIndex += target[prop].length;
 				found = true;
 				break;
