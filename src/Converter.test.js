@@ -137,5 +137,20 @@ describe('Converter', () => {
 				`${CommonFormat.hoursLeading24Format}:${CommonFormat.minutesLeading}:${CommonFormat.secondsLeading} ` +
 				`${CommonFormat.secondsSimple} ${CommonFormat.unixTimestamp}`, config)).to.eql('dd-mm-yyyy hh:ii:ss s t');
 		});
+
+		it('should format unknown types as empty string', () => {
+			const config = {
+				secondsLeading: 'ss',
+				hoursLeading24Format: 'hh',
+				daysLeading: 'dd',
+				monthsLeading: 'mm',
+				yearsFourDigits: 'yyyy'
+			};
+
+			expect(Converter.format(
+				`${CommonFormat.daysLeading}-${CommonFormat.monthsLeading}-${CommonFormat.yearsFourDigits} ` +
+				`${CommonFormat.hoursLeading24Format}:${CommonFormat.minutesLeading}:${CommonFormat.secondsLeading} ` +
+				`${CommonFormat.unixTimestamp}`, config)).to.eql('dd-mm-yyyy hh::ss ');
+		});
 	});
 });
