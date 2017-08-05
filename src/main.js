@@ -1,7 +1,7 @@
 import Converter from './Converter';
 import momentjsFormat from './patterns/momentjs';
 
-module.exports = function(valueToConvert, sourceFormat, destinationFormat) {
+const convert = function(valueToConvert, sourceFormat, destinationFormat) {
 	let sourceFormatObject = sourceFormat;
 	let destinationFormatObject = destinationFormat;
 	if (sourceFormatObject === 'momentjs') {
@@ -16,4 +16,8 @@ module.exports = function(valueToConvert, sourceFormat, destinationFormat) {
 		}
 	}
 	return Converter.format(Converter.parse(valueToConvert, sourceFormatObject), destinationFormatObject);
+};
+
+export {
+	convert
 };

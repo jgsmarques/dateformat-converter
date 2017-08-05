@@ -20,14 +20,14 @@ npm install dateformat-converter
 ```
 ```
 var dateformatConverter = require('dateformat-converter');
-var newDateFormat = dateformatConverter('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
+var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
 ```
 
 #### Browser
 ```
 <script src="dist/dateformat-converter.min.js"></script>
 <script>
-    var newDateFormat = dateformatConverter('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
+    var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
 </script>
 ```
 
