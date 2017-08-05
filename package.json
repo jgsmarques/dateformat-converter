@@ -7,6 +7,7 @@
     "setup": "npm install && npm run validate",
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=test nyc mocha --opts ./mocha.opts \"src/**/*.test.js\"",
+    "test:debug": "cross-env NODE_ENV=test mocha --debug-brk --opts ./mocha.opts \"src/**/*.test.js\"",
     "test:results": "npm run open -- coverage\\lcov-report\\index.html\"",
     "report-coverage": "codecov",
     "prebuild": "rimraf dist",
@@ -34,7 +35,10 @@
     "url": "https://github.com/tigermarques/dateformat-converter/issues"
   },
   "homepage": "https://github.com/tigermarques/dateformat-converter#readme",
-	"files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
