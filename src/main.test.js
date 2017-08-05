@@ -3,16 +3,15 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-// eslint-disable-next-line import/default
-import dateformatConverter from './main';
+import { convert } from './main';
 import Converter from './Converter';
 
 chai.use(sinonChai);
 
 describe('Dateformat Converter', () => {
 	it('should be imported correctly', () => {
-		expect(dateformatConverter).to.be.a('function');
-		expect(dateformatConverter).to.have.length(3);
+		expect(convert).to.be.a('function');
+		expect(convert).to.have.length(3);
 	});
 
 	it('should call underlying functions when called', () => {
@@ -22,7 +21,7 @@ describe('Dateformat Converter', () => {
 		expect(stubParse).not.to.have.been.called;
 		expect(stubFormat).not.to.have.been.called;
 
-		dateformatConverter('MM/dd/yyyy HH:ii:ss P', {
+		convert('MM/dd/yyyy HH:ii:ss P', {
 			lowerCaseMeridian: 'p',
 			upperCaseMeridian: 'P',
 			secondsSimple: 's',
@@ -74,7 +73,7 @@ describe('Dateformat Converter', () => {
 	});
 
 	it('should work on a real case scenarion', () => {
-		expect(dateformatConverter('mm/dd/yyyy HH:ii:ss P', {
+		expect(convert('mm/dd/yyyy HH:ii:ss P', {
 			lowerCaseMeridian: 'p',
 			upperCaseMeridian: 'P',
 			secondsSimple: 's',
@@ -120,7 +119,7 @@ describe('Dateformat Converter', () => {
 	});
 
 	it('should not attempt to convert types that do not have a correspondance on the target configuration', () => {
-		expect(dateformatConverter('mm/dd/yyyy HH:ii:ss P', {
+		expect(convert('mm/dd/yyyy HH:ii:ss P', {
 			lowerCaseMeridian: 'p',
 			upperCaseMeridian: 'P',
 			secondsSimple: 's',
@@ -152,7 +151,7 @@ describe('Dateformat Converter', () => {
 	});
 
 	it('should work converting to and from "momentjs" pattern', () => {
-		expect(dateformatConverter('mm/dd/yyyy HH:ii:ss P', {
+		expect(convert('mm/dd/yyyy HH:ii:ss P', {
 			lowerCaseMeridian: 'p',
 			upperCaseMeridian: 'P',
 			secondsSimple: 's',
@@ -175,7 +174,7 @@ describe('Dateformat Converter', () => {
 			timezoneName: 'Z'
 		}, 'momentjs')).to.eql('MM/DD/YYYY hh:mm:ss A');
 
-		expect(dateformatConverter('MM/DD/YYYY hh:mm:ss A', 'momentjs', {
+		expect(convert('MM/DD/YYYY hh:mm:ss A', 'momentjs', {
 			lowerCaseMeridian: 'p',
 			upperCaseMeridian: 'P',
 			secondsSimple: 's',
