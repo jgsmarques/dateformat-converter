@@ -1,0 +1,20 @@
+{
+	"lowerCaseMeridian": "p",
+	"upperCaseMeridian": "a",
+	"secondsSimple": "s",
+	"secondsLeading": "ss",
+	"minutesSimple": "m",
+	"minutesLeading": "mm",
+	"hoursSimple24Format": "H",
+	"hoursLeading24Format": "HH",
+	"hoursSimple12Format": "h",
+	"hoursLeading12Format": "hh",
+	"daysSimple": "d",
+	"daysLeading": "dd",
+	"monthsSimple": "M",
+	"monthsLeading": "MM",
+	"monthsSimpleText": "MMM",
+	"monthsFullText": "MMMM",
+	"yearsTwoDigits": "yy",
+	"yearsFourDigits": "yyyy"
+}
