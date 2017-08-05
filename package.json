@@ -2,7 +2,7 @@
   "name": "dateformat-converter",
   "version": "0.0.0-semantic-released",
   "description": "Package to convert between dateformats",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "setup": "npm install && npm run validate",
     "lint": "eslint .",
