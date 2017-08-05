@@ -25,7 +25,7 @@ var newDateFormat = dateformatConverter('YYYY-MM-DD hh:mm:ss A', sourceConfig, d
 
 #### Browser
 ```
-<script src="dist/main.js"></script>
+<script src="dist/dateformat-converter.min.js"></script>
 <script>
     var newDateFormat = dateformatConverter('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
 </script>
