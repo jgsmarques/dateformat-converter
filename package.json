@@ -2,11 +2,12 @@
   "name": "dateformat-converter",
   "version": "0.0.0-semantic-released",
   "description": "Package to convert between dateformats",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "setup": "npm install && npm run validate",
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=test nyc mocha --opts ./mocha.opts \"src/**/*.test.js\"",
+    "test:debug": "cross-env NODE_ENV=test mocha --debug-brk --opts ./mocha.opts \"src/**/*.test.js\"",
     "test:results": "npm run open -- coverage\\lcov-report\\index.html\"",
     "report-coverage": "codecov",
     "prebuild": "rimraf dist",
@@ -34,7 +35,10 @@
     "url": "https://github.com/tigermarques/dateformat-converter/issues"
   },
   "homepage": "https://github.com/tigermarques/dateformat-converter#readme",
-	"files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
@@ -55,6 +59,8 @@
     "open-cli": "1.0.5",
     "semantic-release": "6.3.6",
     "semantic-release-cli": "3.0.3",
+    "sinon": "3.0.0",
+    "sinon-chai": "2.12.0",
     "validate-commit-msg": "2.14.0"
   },
   "config": {
