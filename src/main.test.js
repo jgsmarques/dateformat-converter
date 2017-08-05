@@ -117,4 +117,36 @@ describe('Dateformat Converter', () => {
 			timezoneName: 'Z'
 		})).to.eql('mm/dd/yy gg:ii:ss a');
 	});
+
+	it('should not attempt to convert types that do not have a correspondance on the target configuration', () => {
+		expect(dateformatConverter('mm/dd/yyyy HH:ii:ss P', {
+			lowerCaseMeridian: 'p',
+			upperCaseMeridian: 'P',
+			secondsSimple: 's',
+			secondsLeading: 'ss',
+			minutesSimple: 'i',
+			minutesLeading: 'ii',
+			hoursSimple24Format: 'h',
+			hoursLeading24Format: 'hh',
+			hoursSimple12Format: 'H',
+			hoursLeading12Format: 'HH',
+			daysSimple: 'd',
+			daysLeading: 'dd',
+			monthsSimple: 'm',
+			monthsLeading: 'mm',
+			monthsSimpleText: 'M',
+			monthsFullText: 'MM',
+			yearsTwoDigits: 'yy',
+			yearsFourDigits: 'yyyy',
+			unixTimestamp: 't',
+			timezoneName: 'Z'
+		}, {
+			secondsLeading: 'ss',
+			minutesLeading: 'ii',
+			hoursLeading12Format: 'gg',
+			daysLeading: 'dd',
+			monthsLeading: 'mm',
+			yearsFourDigits: 'yy'
+		})).to.eql('mm/dd/yy gg:ii:ss P');
+	});
 });
