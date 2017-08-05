@@ -3,6 +3,7 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
+// eslint-disable-next-line import/default
 import dateformatConverter from './main';
 import Converter from './Converter';
 
