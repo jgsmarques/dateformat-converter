@@ -5,8 +5,8 @@ module.exports = env => {
 	const config = {
 		context: resolve('src'),
 		entry: {
-			'dateformat-converter': './main.js',
-			'dateformat-converter.min': './main.js'
+			'dateformat-converter': './dateformat-converter.js',
+			'dateformat-converter.min': './dateformat-converter.js'
 		},
 		output: {
 			filename: '[name].js',
