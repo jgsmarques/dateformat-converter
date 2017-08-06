@@ -12,12 +12,43 @@ This tool attempts to solve the problem that exists when trying to use different
 
 A component receives as an input a datetime pattern that follows the [momentjs](https://momentjs.com/docs/#/parsing/string-format/) strucutre. It then renders a datetimepicker from [bootstrap-datetimepicker](https://github.com/smalot/bootstrap-datetimepicker). Since these two libraries use different datetime patterns, in order to use, for example, the momentjs pattern 'YYYY-MM-DD hh:mm:ss A' it would be necessary to convert it to 'yyyy-mm-dd HH:ii:ss P'. This is very unpractical and this tool aims at simplifying this task.
 
-## Install
+## Getting Started
 
-#### npm
+### Prerequisites
 
+In order to install this software, you will need:
+- Node version 6.\*
+- npm version 3.\* (comes with Node 6.\*)
+
+### Installing
+
+To install this package, run
 ```
 npm install dateformat-converter
+```
+
+### Project Setup for development:
+
+To get a copy of this repository for local development, follow these steps
+
+```
+git clone https://github.com/tigermarques/dateformat-converter.git
+cd dateformat-converter
+npm run setup
+```
+
+## Running the Tests
+
+To run the project unit tests, run
+
+```
+npm test
+```
+
+To see the coverage results in HTML format, run
+
+```
+npm run test:results
 ```
 
 ## Usage
@@ -120,16 +151,20 @@ For example, for [momentjs](https://momentjs.com/docs/#/parsing/string-format/),
 }
 ```
 
-## Built in patterns
+### Built in patterns
 
 - [momentjs](https://momentjs.com/docs/#/parsing/string-format/)
 - [bootstrap-datetime-picker](https://www.npmjs.com/package/bootstrap-datetime-picker)
 - [jquery-dateFormat](https://github.com/phstc/jquery-dateFormat#date-and-time-patterns)
 
-## Project Setup for development:
-Use a command prompt with admin privileges
-```
-git clone https://github.com/tigermarques/dateformat-converter.git
-cd dateformat-converter
-npm run setup
-```
+## Contributing
+
+Issues and Pull Requests welcome!
+
+## Authors
+
+* **João Marques** - *Initial work*
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
