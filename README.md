@@ -12,43 +12,59 @@ This tool attempts to solve the problem that exists when trying to use different
 
 A component receives as an input a datetime pattern that follows the [momentjs](https://momentjs.com/docs/#/parsing/string-format/) strucutre. It then renders a datetimepicker from [bootstrap-datetimepicker](https://github.com/smalot/bootstrap-datetimepicker). Since these two libraries use different datetime patterns, in order to use, for example, the momentjs pattern 'YYYY-MM-DD hh:mm:ss A' it would be necessary to convert it to 'yyyy-mm-dd HH:ii:ss P'. This is very unpractical and this tool aims at simplifying this task.
 
-## Usage
+## Install
 
-#### NPM
+#### npm
+
 ```
 npm install dateformat-converter
 ```
+
+## Usage
+
+#### CommonJS
 ```
 var dateformatConverter = require('dateformat-converter');
-var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
+var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', 'momentjs', 'jquery-dateFormat');
+```
+
+#### AMD
+```
+require('dateformat-converter', function(dateformatConverter) {
+	var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', 'momentjs', 'jquery-dateFormat');
+})
 ```
 
 #### Browser
 ```
 <script src="dist/dateformat-converter.min.js"></script>
 <script>
-    var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', sourceConfig, destinationConfig);
+    var newDateFormat = dateformatConverter.convert('YYYY-MM-DD hh:mm:ss A', 'momentjs', 'jquery-dateFormat');
 </script>
 ```
 
 ## API
 
-The library exports a single function that accepts 3 parameters:
-- the pattern that needs to be translated (String)
-- the object that represents the source pattern configuration (String|object)
-- the object that represents the destination pattern configuration (String|object)
+The library exports two methods
 
-### Configuration object
+### loadConfig
 
-The second and third parameters represent the source and destination configurations. This can be a String for already built-in configurations, or it can be an object that represents a configuration as well.
+Arguments:
+- configurationName (String)
+- configurationObject (Object)
 
-#### Built in patterns
+This method allows to register or replace a pattern. You need to provide the pattern name and its [configuration](#configuration-object).
 
-- [momentjs](https://momentjs.com/docs/#/parsing/string-format/)
-- [bootstrap-datetime-picker](https://www.npmjs.com/package/bootstrap-datetime-picker)
-- [jquery-dateFormat](https://github.com/phstc/jquery-dateFormat#date-and-time-patterns)
+### convert(String, String, String)
 
-#### Configuration object structure
+Arguments:
+- valueToConvert (String)
+- sourceFormat (String)
+- destinationFormat (String)
+
+This method performs the conversion of the `valueToConvert`, that is specified in the `sourceFormat` into the `destinationFormat`.
+
+## Configuration object
 
 If you choose to create your own pattern for translation, you need to pass in an object with a subset of the following properties:
 
@@ -103,6 +119,12 @@ For example, for [momentjs](https://momentjs.com/docs/#/parsing/string-format/),
 	timezoneName: 'Z'
 }
 ```
+
+## Built in patterns
+
+- [momentjs](https://momentjs.com/docs/#/parsing/string-format/)
+- [bootstrap-datetime-picker](https://www.npmjs.com/package/bootstrap-datetime-picker)
+- [jquery-dateFormat](https://github.com/phstc/jquery-dateFormat#date-and-time-patterns)
 
 ## Project Setup for development:
 Use a command prompt with admin privileges
